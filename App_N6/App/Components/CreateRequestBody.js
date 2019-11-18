@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import CreateRequestBodyStyle from './Styles/CreateRequestBodyStyle'
 import CustomHeader from './CustomHeader'
 import ImagePicker from 'react-native-image-picker'
-
+import {Category_LIST} from '../Data/DataTest'
 const options = {
   title: 'Select Recommendation Images',
   mediaType: 'photo',
@@ -126,8 +126,8 @@ export default class CreateRequestBody extends Component {
                 this.setState({ category: value })
               }}>
               <Picker.Item label='-chọn-' value='' color='#D3D3D3' />
-              {Object.keys(this.state.data).map((key) => {
-                return (<Picker.Item label={this.state.data[key].name} value={this.state.data[key].name} key={key} />)
+              {Object.keys(Category_LIST).map((key) => {
+                return (<Picker.Item label={Category_LIST[key].name} value={Category_LIST[key].name} key={key} />)
               })}
             </Picker>
             <Text

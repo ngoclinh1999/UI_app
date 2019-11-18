@@ -7,27 +7,27 @@ import CustomHeader from './CustomHeader'
 
 class CategoriesBody extends Component {
   constructor(props) {
-    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+    super();
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
   }
-  componentWillMount() { 
+  componentWillMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
   }
   componentWillUnmount() { 
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
   }
   handleBackButtonClick() {
-    
-    this.props.navigation.goBack(null);
+    this.props.navigation.goBack(null)
     return true;
   }
   render () {
-    let items = Object.values(this.state.data)
+    this.category = this.props.navigation.getParam('category','') 
     return (
       <SafeAreaView style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent'/>
         <CustomHeader title={this.category} add={'No'} admin ={'No'} send = {'No'} {...this.props} />
         <View style={styles.body}>
-            <WarningList items = {items} {...this.props} />
+            <WarningList {...this.props} />
         </View>
       </SafeAreaView>
     )

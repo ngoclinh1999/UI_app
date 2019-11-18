@@ -4,7 +4,7 @@ const HeightScreen = Dimensions.get('window').height
 export default StyleSheet.create({
   wrap: {
     flex: 1,
-    backgroundColor: '#f4f7f9',
+    backgroundColor: 'white',
     width:WidthScreen,
     height:HeightScreen
   },

@@ -25,9 +25,9 @@ export default class SignUpBody extends Component {
     this.props.navigation.goBack(null);
     return true;
   }
-  handleSignUp = () => {
-    
-    }
+  ResetPass = () => {
+    this.props.navigation.navigate('ConfirmScreen',{screen : 'CreatenewpassScreen'})
+  }
   render () {
     return (
       <ScrollView keyboardDismissMode='on-drag'>
@@ -57,7 +57,7 @@ export default class SignUpBody extends Component {
               <Button
                 title='Xác nhận'
                 buttonStyle={style.buttonstyle}
-                onPress = {()=> this.handleSignUp()}
+                onPress = {()=> this.ResetPass()}
               />
             </View>
           </View>

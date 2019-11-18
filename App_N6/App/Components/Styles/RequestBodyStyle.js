@@ -23,7 +23,7 @@ export default StyleSheet.create({
     },
     containerFlatItem: {
         alignContent: 'center',
-        marginTop: HEIGHT * 0.1,
+        marginTop: HEIGHT * 0.05,
         marginLeft: WIDTH * 0.05,
         marginRight: WIDTH * 0.05,
         height: HEIGHT * 0.7

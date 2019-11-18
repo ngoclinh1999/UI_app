@@ -31,17 +31,13 @@ export default StyleSheet.create({
   iconStyle: {
     width:60,
     height:60,
-    marginLeft: WidthScreen * 0.09,
-    marginRight: WidthScreen * 0.09,
-    borderWidth:1,
-    backgroundColor:'#5f9ea0',
     borderRadius:10,
-
+    flex: 3
   },
   text: {
     marginTop:20,
     fontSize: 16,
-    color: 'white',
+    color: '#212121',
     textAlign: 'center'
   },
   signout: {

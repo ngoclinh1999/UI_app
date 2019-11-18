@@ -20,7 +20,7 @@ export default StyleSheet.create({
   buttonGroupContainerStyle: {
     height: HeightScreen * 0.05,
     elevation: 3,
-    borderRadius: 5
+    borderRadius: 5,
   },
   buttonGroupTextStyle: {
     fontSize: 20,

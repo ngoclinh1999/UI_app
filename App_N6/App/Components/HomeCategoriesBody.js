@@ -13,7 +13,6 @@ class HomeCategoriesBody extends Component {
     this.state={
       chuyenmuc: '',
       isVisible: false,
-      data: []
     }
   }
   componentWillMount() {
@@ -56,7 +55,6 @@ class HomeCategoriesBody extends Component {
   render () {
     const WidthScreen = Dimensions.get('window').width;
     const HeightScreen = Dimensions.get('screen').height;
-    let items = Object.values(this.state.data)
     return (
       <SafeAreaView style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
@@ -66,7 +64,7 @@ class HomeCategoriesBody extends Component {
             <Text style={styles.title}>Danh sách chuyên mục: </Text>
           </View>
           <View style={styles.bodyBottom}>
-            <CategoriesList items = {items} {...this.props} />
+            <CategoriesList {...this.props} />
           </View>
         </View>
         <Modal

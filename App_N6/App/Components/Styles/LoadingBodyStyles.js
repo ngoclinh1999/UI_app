@@ -5,17 +5,11 @@ export default StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#3399FF'
+        backgroundColor: '#4FC3F7'
     },
     view:{
         marginBottom: Dimensions.get('window').height*0.3,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    text1: {
-        fontSize: 28   
-    },
-    text2: {
-        fontSize: 28   
-    }
 })

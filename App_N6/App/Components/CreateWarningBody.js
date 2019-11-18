@@ -17,9 +17,8 @@ import {
 import styles from './Styles/CreateWarningBodyStyles'
 import { Button } from 'react-native-elements'
 import CustomHeader from './CustomHeader'
-
 import ImagePicker from 'react-native-image-picker'
-
+import {Category_LIST} from '../Data/DataTest'
 const options = {
   title: 'Select Avatar',
   mediaType: 'photo',
@@ -50,7 +49,7 @@ class CreateWarningBody extends Component {
     }
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
   }
-  componentWillMount(){ 
+  componentWillMount(){
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
   }
   componentWillUnmount() { 
@@ -98,7 +97,6 @@ class CreateWarningBody extends Component {
     })
   }
   render () {
-    //let items = Object.values(this.state.data)
     return (
       <SafeAreaView style={styles.container}>
       <StatusBar translucent = {true} backgroundColor='transparent'/>
@@ -120,8 +118,8 @@ class CreateWarningBody extends Component {
               mode='dropdown'
               onValueChange={(value) => { this.setState({ chuyenmuc: value }) }}>
               <Picker.Item label='-chọn-' value='' color='#D3D3D3' />
-              {Object.keys(this.state.data).map((key) => {
-            return (<Picker.Item label={this.state.data[key].data.chuyenmuc} value={this.state.data[key].data.chuyenmuc} key={key}/>)
+              {Object.keys(Category_LIST).map((key) => {
+            return (<Picker.Item label={Catesgory_LIST[key].name} value={Category_LIST[key].name} key={key}/>)
             })}
             </Picker>
             <Text style={styles.title}>Nội dung: </Text>

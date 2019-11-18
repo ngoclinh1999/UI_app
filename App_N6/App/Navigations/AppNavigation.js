@@ -19,6 +19,8 @@ import RequestDetailScreen from '../Containers/RequestDetailScreen'
 import ResetpassScreen from '../Containers/ResetpassScreen'
 import HouseWarningScreen from '../Containers/HouseWarningScreen'
 import ChangeInforScreen from '../Containers/ChangeInforScreen'
+import ConfirmScreen from '../Containers/ConfirmScreen'
+import CreatenewpassScreen from '../Containers/CreatenewpassScreen'
 
 const WarningNavigation = createStackNavigator(
   {
@@ -72,6 +74,9 @@ const AppNavigator = createStackNavigator(
     LoadingScreen: {
       screen: LoadingScreen
     },
+    ConfirmScreen: {
+      screen :ConfirmScreen
+    },
     HomeScreen: {
       screen: HomeScreen
     },
@@ -98,6 +103,9 @@ const AppNavigator = createStackNavigator(
     },
     ChangeInforScreen: {
       screen: ChangeInforScreen
+    },
+    CreatenewpassScreen:{
+      screen: CreatenewpassScreen
     }
   },
   {

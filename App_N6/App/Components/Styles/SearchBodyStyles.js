@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 export default (Style = StyleSheet.create({
   textinput: {
     color: 'black',
-    height: 40,
+    height: 45,
     width: Dimensions.get('window').width - 60,
     borderWidth: 1,
     margin: 30,
@@ -15,8 +15,8 @@ export default (Style = StyleSheet.create({
     margin: 20
   },
   button: {
-    height: 35,
-    width: 100,
+    height: 45,
+    width: 200,
     borderRadius: 10
   }
 }))

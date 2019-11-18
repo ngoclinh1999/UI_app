@@ -10,8 +10,6 @@ class HomeWarningBody extends Component {
     super()
     this.state = {
       selectedIndex: 0,
-      data: [],
-      data1: []
     }
     this.updateIndex = this.updateIndex.bind(this);
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
@@ -32,8 +30,6 @@ class HomeWarningBody extends Component {
     this.setState({selectedIndex})
   }
   render () {
-    let items = Object.values(this.state.data1)
-    console.log(items)
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar translucent backgroundColor='transparent' barStyle="dark-content"/>
@@ -52,9 +48,10 @@ class HomeWarningBody extends Component {
             buttons={['Tất cả', 'Mới nhất', 'Phổ biến']}
             containerStyle={styles.buttonGroupContainerStyle}
             textStyle={styles.buttonGroupTextStyle}
+            selectedButtonStyle={{backgroundColor: "#2196F3"}}
           />
           <View style={styles.bodyBottom}>
-            <WarningList items = {items} {...this.props} />
+            <WarningList {...this.props} />
           </View>
         </View>
       </SafeAreaView>

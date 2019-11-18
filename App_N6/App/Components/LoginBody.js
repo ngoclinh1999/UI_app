@@ -1,40 +1,69 @@
 import React, { Component } from 'react'
-import { Alert, Text, View, StatusBar, Image, BackHandler,ScrollView,ToastAndroid} from 'react-native'
+import {
+  Alert,
+  Text,
+  View,
+  StatusBar,
+  Image,
+  BackHandler,
+  ScrollView,
+  ToastAndroid
+} from 'react-native'
 import style from './Styles/LoginBodyStyles'
 import { Input, Button } from 'react-native-elements'
 
 export default class BackgroundImage extends Component {
-
-  constructor(props){
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       email: '',
       password: '',
       errorMessage: ''
-      
     }
-    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
   }
-  componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+  componentWillMount () {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton)
   }
-  componentWillUnmount() { 
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+  componentWillUnmount () {
+    BackHandler.removeEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick
+    )
   }
-  handleBackButtonClick() {
-    
-    this.props.navigation.goBack(null);
-    return true;
+  handleBackButtonClick () {
+    BackHandler.exitApp()
+  }
+  handleBackButton = () => {
+    Alert.alert(
+      'Thoát!',
+      'Bạn có muốn thoát không?',
+      [
+        {
+          text: 'Hủy',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        {
+          text: 'Đồng ý',
+          onPress: () => BackHandler.exitApp()
+        }
+      ],
+      {
+        cancelable: false
+      }
+    )
+    return true
   }
   handleLogin = () => {
     const { email, password } = this.state
-    if(email.trim() != "" && password.trim() != "") {
-        this.props.navigation.push('HomeScreen')
+    if (email.trim() != '' && password.trim() != '') {
+      this.props.navigation.push('HomeScreen')
     } else {
       ToastAndroid.showWithGravity(
         'Hãy nhập tài khoản, mật khẩu',
         ToastAndroid.SHORT,
-        ToastAndroid.CENTER,
+        ToastAndroid.CENTER
       )
     }
   }
@@ -42,13 +71,17 @@ export default class BackgroundImage extends Component {
     return (
       <ScrollView keyboardDismissMode='on-drag'>
         <View style={style.wrap}>
-          <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
+          <StatusBar
+            translucent
+            backgroundColor='transparent'
+            barStyle='dark-content'
+          />
           <View style={style.bewraped}>
             <View style={style.image}>
-            <Text style={style.text}>Đô thị thông minh</Text>
-              <Image  source={{uri:"https://png.pngtree.com/element_origin_min_pic/16/07/25/115795870337220.jpg"}}
-                      style={style.logo}></Image>
-             
+              <Text style={style.text}>Quản lý đô thị</Text>
+              <Image style={style.logo} 
+                source = {require('../Images/Logo.png')}
+              />
             </View>
             <Input
               inputContainerStyle={style.input}
@@ -57,11 +90,11 @@ export default class BackgroundImage extends Component {
               placeholderTextColor='gray'
               leftIcon={{ type: 'sFontisto', name: 'email' }}
               containerStyle={{ alignItems: 'center' }}
-              leftIconContainerStyle = {{marginLeft: 0}}
+              leftIconContainerStyle={{ marginLeft: 0 }}
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
-            <Input 
+            <Input
               inputContainerStyle={style.input}
               keyboardType='default'
               placeholder='Nhập mật khẩu'
@@ -69,7 +102,7 @@ export default class BackgroundImage extends Component {
               leftIcon={{ type: 'AntDesign', name: 'lock' }}
               secureTextEntry
               containerStyle={{ alignItems: 'center' }}
-              leftIconContainerStyle = {{marginLeft: 0}}
+              leftIconContainerStyle={{ marginLeft: 0 }}
               onChangeText={password => this.setState({ password })}
               value={this.state.password}
             />
@@ -77,7 +110,9 @@ export default class BackgroundImage extends Component {
               <Button
                 title='Đăng nhập'
                 buttonStyle={style.buttonstyle}
-                onPress={()=> {this.handleLogin()}}
+                onPress={() => {
+                  this.handleLogin()
+                }}
               />
             </View>
             <View style={style.containtext}>
@@ -91,13 +126,14 @@ export default class BackgroundImage extends Component {
                 title='Quên mật khẩu?'
                 titleStyle={{ color: 'black' }}
                 type='clear'
-                onPress={()=>this.props.navigation.navigate('ResetpassScreen')}
+                onPress={() =>
+                  this.props.navigation.navigate('ResetpassScreen')
+                }
               />
             </View>
           </View>
-      </View>
+        </View>
       </ScrollView>
-      
     )
   }
 }

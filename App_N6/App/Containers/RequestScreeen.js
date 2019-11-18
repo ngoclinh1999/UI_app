@@ -6,9 +6,7 @@ export default class RequestScreen extends Component {
 
   render () {
     return (
-      <View>
         <RequestBody {...this.props} />
-      </View>
     )
   }
 }

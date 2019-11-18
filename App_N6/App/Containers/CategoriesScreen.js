@@ -6,9 +6,7 @@ class CategoriesScreen extends Component {
 
     render() {
         return (
-            <View>
                 <CategoriesBody {...this.props}/>
-            </View>
         );
     }
 }

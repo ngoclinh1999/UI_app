@@ -7,11 +7,13 @@ export default class FlatListItem extends Component {
     return (
       <TouchableOpacity
         onPress={() =>{
-
+          this.props.navigation.navigate('CategoriesScreen', {
+            category: this.props.item.name
+          })
         }}
         style={styles.viewStyle}
       >
-        <Text style={styles.text}>{this.props.item.data.chuyenmuc}</Text>
+        <Text style={styles.text}>{this.props.item.name}</Text>
       </TouchableOpacity>
       
     )

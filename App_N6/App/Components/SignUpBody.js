@@ -28,7 +28,7 @@ export default class SignUpBody extends Component {
     return true;
   }
   handleSignUp = () => {
-    
+    this.props.navigation.navigate('ConfirmScreen',{screen : 'HomeScreen'})
   }
   render () {
     return (
@@ -48,7 +48,7 @@ export default class SignUpBody extends Component {
             />
           </View>
           <View style={style.bewraped}>
-            <Text style = {{fontSize : 20, marginRight : 270 }}>Email</Text>
+            <Text style = {{fontSize : 20, marginLeft : 20 }}>Email</Text>
             <Input
               inputContainerStyle={style.input}
               keyboardType='email-address'
@@ -60,7 +60,7 @@ export default class SignUpBody extends Component {
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
-               <Text style = {{fontSize : 20, marginRight : 240, marginTop: 20 }}>Mật khẩu</Text>
+               <Text style = {{fontSize : 20, marginLeft : 20, marginTop: 20 }}>Mật khẩu</Text>
             <Input
               inputContainerStyle={style.input}
               keyboardType='default'
@@ -73,7 +73,7 @@ export default class SignUpBody extends Component {
               onChangeText={password => this.setState({ password })}
               value={this.state.password}
             />
-               <Text style = {{fontSize : 20, marginRight : 200,height : 30 ,marginTop : 20, width : 120 }}>Xác nhận </Text>
+               <Text style = {{fontSize : 20, marginLeft : 20,height : 30 ,marginTop : 20, width : 120 }}>Xác nhận </Text>
             <Input
               inputContainerStyle={style.input}
               keyboardType='default'

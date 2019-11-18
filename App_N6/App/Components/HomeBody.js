@@ -37,8 +37,9 @@ export default class HomeBody extends Component {
       <View style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
         <ImageBackground
-          source={require("../Images/background.png")}
+          source={require("../Images/background.jpg")}
           style={styles.image}
+          imageStyle={{opacity: 0.7}}
         >
           <View style ={styles.top}>
             <View style = {styles.avatar}>
@@ -51,13 +52,12 @@ export default class HomeBody extends Component {
           />
             </View> 
             <Button
-                title= "Đăng nhập"
-                titleStyle={{ fontSize: 18,color: 'white' }}
+                title= "Đăng xuất"
+                titleStyle={{ fontSize: 18,color: '#9E9E9E' }}
                 type='clear'
                 onPress={() => {
                   this.props.navigation.navigate("LoginScreen")
                 }}
-                disabledTitleStyle = {{color : 'transparent'}}
                 style = {styles.signout}
               />  
           </View>

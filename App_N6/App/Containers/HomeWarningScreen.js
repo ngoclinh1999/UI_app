@@ -6,9 +6,7 @@ class HomeWarningScreen extends Component {
 
     render() {
         return (
-            <View>
                 <HomeWarningBody {...this.props}/>
-            </View>
         )
     }
 }

@@ -22,13 +22,13 @@ class ChangeInfor extends Component {
     super(props)  
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
     this.state = {
-        hoten: '',
-        gtinh: '',
-        ngsinh: '',
-        phone: '',
-        email: '',
-        id: '',
-        avatar: ''
+      hoten: 'Nguyễn Vũ Đông',
+      gtinh: 'Nam',
+      ngsinh: '07/11/1999',
+      phone: '0987654321',
+      email: 'nguyenvudong0711@gmail.com',
+      id: '1',
+      avatar: ''
     }
   }
   componentWillMount() {
@@ -71,7 +71,7 @@ class ChangeInfor extends Component {
           <Avatar
             style={styles.avatar}
             rounded = {true}
-            source={ source = { uri: 'data:image/jpeg;base64,' + this.state.avatar }}
+            source={ (this.state.avatar == '') ? require('../Images/Logo.png'):source = { uri: 'data:image;base64,' + this.state.avatar }}
             showEditButton = {true}
             editButton = {{size: 18}}
             onEditPress = {()=> this.editAvatar()}

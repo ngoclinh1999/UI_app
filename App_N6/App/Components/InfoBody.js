@@ -5,7 +5,7 @@ import styles from './Styles/InfoBodyStyles'
 import CustomHeader from './CustomHeader'
 import { withNavigation } from 'react-navigation'
 import ImagePicker from 'react-native-image-picker'
-
+import {INFO} from '../Data/DataTest'
 const options = {
   title: 'Select Avatar',
   mediaType: 'photo',
@@ -27,9 +27,6 @@ class InforBody extends Component {
   }
   componentWillMount() { 
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
-  }
-  componentDidMount(){
-    
   }
   componentWillUnmount() { 
     BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
@@ -56,6 +53,7 @@ class InforBody extends Component {
     })
   }
   render () {
+    const data = Object.values(INFO)
     return (
       <View style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
@@ -70,23 +68,24 @@ class InforBody extends Component {
           <Avatar
             style={styles.avatar}
             rounded = {true}
-            source={ source = { uri: 'data:image/jpeg;base64,' + this.state.temp.avatar }}
+            source={require("../Images/Logo.png")}
             showEditButton = {true}
             editButton = {{size: 18}}
             onEditPress = {()=> this.editAvatar()}
           />
         </View>
         <View style={{ flexDirection: 'column', marginLeft: 10  }}>
-          <Text style={styles.segif}>Họ tên: {this.state.temp.hoten}</Text>
-          <Text style={styles.segif}>Ngày sinh : {this.state.temp.ngsinh}</Text>
-          <Text style={styles.segif}>Giới tính : {this.state.temp.gtinh}</Text>
-          <Text style={styles.segif}>Điện thoại : {this.state.temp.phone}</Text>
-          <Text style={styles.segif1}>Email : {this.state.temp.email}</Text>
+          <Text style={styles.segif}>Họ tên: {data[0].name}</Text>
+          <Text style={styles.segif}>Ngày sinh : {data[0].dob}</Text>
+          <Text style={styles.segif}>Giới tính : {data[0].gender}</Text>
+          <Text style={styles.segif}>Điện thoại : {data[0].phone}</Text>
+          <Text style={styles.segif}>Địa chỉ : {data[0].address}</Text>
+          <Text style={styles.segif1}>Email : {data[0].email}</Text>
         </View>
         <View style = {styles.spacechangepass} >
           <Button buttonStyle={styles.changepass}
             title='Đổi thông tin'
-            onPress={() => { this.props.navigation.navigate('ChangeInforScreen', {data: this.state.temp})
+            onPress={() => { this.props.navigation.navigate('ChangeInforScreen')
             }}
           />
         </View>

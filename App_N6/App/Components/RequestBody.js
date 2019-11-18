@@ -5,7 +5,7 @@ import { ButtonGroup } from 'react-native-elements'
 import RequestBodyStyle from './Styles/RequestBodyStyle'
 import RequestItem from './RequestItem'
 import CustomHeader from './CustomHeader'
-
+import {PAKN_LIST} from '../Data/DataTest'
 export default class RequestBody extends Component {
 
   constructor (props) {
@@ -32,7 +32,6 @@ export default class RequestBody extends Component {
     this.setState({selectedIndex})
   }
   render () {
-    let items = Object.values(this.state.sortedData)
     const buttons = ['Tất cả', 'Mới nhất', 'Phổ biến']
     return (      
       <SafeAreaView style={RequestBodyStyle.safeAreaView}>
@@ -59,7 +58,7 @@ export default class RequestBody extends Component {
           <View style={RequestBodyStyle.containerFlatItem}>
             <FlatList
               {...this.props}
-              data={items}
+              data= {PAKN_LIST}
               keyExtractor={(item, index) => index.toString()}
               renderItem={({ item, index }) => {
                 return <RequestItem {...this.props} item={item} index={index} />

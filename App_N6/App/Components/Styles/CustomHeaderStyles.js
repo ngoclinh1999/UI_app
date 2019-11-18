@@ -7,7 +7,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: HeightScreen * 0.12,
-    backgroundColor: '#3b5998',
+    backgroundColor: '#29B6F6',
   },
   titleStyle: {
     fontSize: 22,
