@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Alert, View, ImageBackground, StatusBar,Text, Platform,ToastAndroid, BackHandler,ScrollView } from 'react-native'
-import style from './Styles/SignUpBodyStyles'
+import { Alert, View, Image, StatusBar,Text, Platform,ToastAndroid, BackHandler,ScrollView, SafeAreaView } from 'react-native'
+import styles from './Styles/SignUpBodyStyles'
 // import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button, Icon,CheckBox  } from 'react-native-elements'
 
@@ -32,80 +32,77 @@ export default class SignUpBody extends Component {
   }
   render () {
     return (
-      <ScrollView keyboardDismissMode='on-drag'>
-        <View style={style.wrap}>
-        <StatusBar translucent = {true} backgroundColor='transparent'/>
-          <View>
-            <Icon
-              name='arrow-back'
-              type='AntDesign'
-              size={25}
-              color='black'
-              containerStyle={style.backIcon}
-              onPress={() => {
-                this.props.navigation.goBack()
-              }}
-            />
-          </View>
-          <View style={style.bewraped}>
-            <Text style = {{fontSize : 20, marginLeft : 20 }}>Email</Text>
-            <Input
-              inputContainerStyle={style.input}
-              keyboardType='email-address'
-              placeholder='abc@gmail.com'
-              placeholderTextColor='gray'
-              leftIcon={{ type: 'Fontisto', name: 'email' }}
-              containerStyle={{ alignItems: 'flex-start' }}
-              leftIconContainerStyle = {{marginLeft: 0}}
-              onChangeText={email => this.setState({ email })}
-              value={this.state.email}
-            />
-               <Text style = {{fontSize : 20, marginLeft : 20, marginTop: 20 }}>Mật khẩu</Text>
-            <Input
-              inputContainerStyle={style.input}
-              keyboardType='default'
-              placeholder='1234'
-              placeholderTextColor='gray'
-              leftIcon={{ type: 'AntDesign', name: 'lock' }}
-              secureTextEntry
-              containerStyle={{ alignItems: 'flex-start' }}
-              leftIconContainerStyle = {{marginLeft: 0}}
-              onChangeText={password => this.setState({ password })}
-              value={this.state.password}
-            />
-               <Text style = {{fontSize : 20, marginLeft : 20,height : 30 ,marginTop : 20, width : 120 }}>Xác nhận </Text>
-            <Input
-              inputContainerStyle={style.input}
-              keyboardType='default'
-              placeholder='1234'
-              placeholderTextColor='gray'
-              leftIcon={{ type: 'AntDesign', name: 'lock' }}
-              secureTextEntry
-              containerStyle={{ alignItems: 'flex-start' }}
-              leftIconContainerStyle = {{marginLeft: 0}}
-              onChangeText={confirm => this.setState({ confirm })}
-              value={this.state.confirm}
-            />
-           <View style =  {style.checkboxspace}>
-              <CheckBox checked = {this.state.checked}  onPress= {() => this.setState({checked: !this.state.checked })}  />
-              <Text style = {style.checkboxtext}>Đồng ý với các điểu khoản của chúng tôi</Text> 
-            </View>
-            <View style={style.button}>
-              <Button
-                title='Đăng kí'
-                buttonStyle={style.buttonstyle}
-                onPress = {()=> this.handleSignUp()}
-              />
-              <Button
-                title='Đã có tài khoản?Đăng nhập'
-                buttonStyle={{alignItems:'center', marginTop:10,marginBottom : 105   }}
-                type='clear'
-                onPress={() => this.props.navigation.navigate('LoginScreen')}
-              />
-            </View>
-          </View>
-      </View>
-      </ScrollView>
+      <SafeAreaView style = {{flex: 1}}>
+        <ScrollView contentContainerStyle = {styles.container}>
+                <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
+                <View style = {styles.top} >
+                    <Icon
+                        name='keyboard-backspace'
+                        type='MaterialIcons'
+                        size={30}
+                        color='white'
+                        underlayColor="transparent"
+                        containerStyle={styles.backIcon}
+                        onPress={() => {
+                            this.props.navigation.goBack()
+                        }}
+                    />
+                    <Image 
+                        source = {require('../Images/Logo.png')}
+                        style = {styles.image}
+                    />
+                </View>
+                <View style = {styles.bottom}>
+                    <View style = {styles.form}>
+                        <Text style = {styles.title}> ĐĂNG KÝ</Text>
+                        <Text style = {styles.text1}> Email</Text>
+                        <Input
+                            inputContainerStyle={styles.input}
+                            keyboardType='email-address'
+                            leftIcon={{ type: 'sFontisto', name: 'email', color:'#757575', size:20 }}
+                            containerStyle={{alignItems:'center' }}
+                            leftIconContainerStyle={{ marginLeft: 0 }}
+                            onChangeText={email => this.setState({ email })}
+                            value={this.state.email}
+                        />
+                        <Text style = {styles.text2}> Mật khẩu</Text>
+                        <Input
+                            inputContainerStyle={styles.input}
+                            keyboardType='email-address'
+                            secureTextEntry={true}
+                            leftIcon={{ type: 'AntDesign', name: 'lock', color:'#757575', size:20 }}
+                            containerStyle={{alignItems:'center' }}
+                            leftIconContainerStyle={{ marginLeft: 0 }}
+                            onChangeText={password => this.setState({ password })}
+                            value={this.state.password}
+                        />
+                        <Text style = {styles.text3}> Nhập lại Mật khẩu</Text>
+                        <Input
+                            inputContainerStyle={styles.input}
+                            keyboardType='email-address'
+                            secureTextEntry={true}
+                            leftIcon={{ type: 'AntDesign', name: 'lock', color:'#757575', size:20 }}
+                            containerStyle={{alignItems:'center' }}
+                            leftIconContainerStyle={{ marginLeft: 0 }}
+                            onChangeText={confirm => this.setState({ confirm })}
+                            value={this.state.confirm}
+                        />
+                        <Button 
+                            type = 'solid'
+                            title = 'Đăng ký'
+                            titleStyle={{fontSize: 18 }}
+                            containerStyle = {styles.containerButton}
+                            buttonStyle = {styles.Button}
+                            onPress={() => {
+                                this.handleSignUp()
+                            }}
+                        />
+                        
+                    </View>
+                </View>
+                
+            </ScrollView>
+      </SafeAreaView>
     )
   }
 }

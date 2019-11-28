@@ -119,7 +119,7 @@ class CreateWarningBody extends Component {
               onValueChange={(value) => { this.setState({ chuyenmuc: value }) }}>
               <Picker.Item label='-chọn-' value='' color='#D3D3D3' />
               {Object.keys(Category_LIST).map((key) => {
-            return (<Picker.Item label={Catesgory_LIST[key].name} value={Category_LIST[key].name} key={key}/>)
+            return (<Picker.Item label={Category_LIST[key].name} value={Category_LIST[key].name} key={key}/>)
             })}
             </Picker>
             <Text style={styles.title}>Nội dung: </Text>
