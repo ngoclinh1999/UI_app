@@ -85,6 +85,7 @@ class InforBody extends Component {
         <View style = {styles.spacechangepass} >
           <Button buttonStyle={styles.changepass}
             title='Đổi thông tin'
+            titleStyle = {{fontSize: 20}}
             onPress={() => { this.props.navigation.navigate('ChangeInforScreen')
             }}
           />

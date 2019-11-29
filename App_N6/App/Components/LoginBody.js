@@ -95,9 +95,9 @@ export default class BackgroundImage extends Component {
                     <Button 
                         type = 'solid'
                         title = 'Đăng nhập'
-                        titleStyle={{fontSize: 18 }}
+                        titleStyle={{fontSize: 20 }}
                         containerStyle = {styles.containerButton}
-                        buttonStyle = {styles.Button}
+                        buttonStyle = {styles.button}
                         onPress={() => {
                             this.handleLogin()
                         }}

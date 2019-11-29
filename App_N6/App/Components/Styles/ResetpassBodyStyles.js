@@ -34,8 +34,8 @@ export default StyleSheet.create({
     shadowOpacity: 0.5
   },
   buttonstyle: {
-    width: WithScreen * 0.8,
-    height: HeightScreen * 0.07, 
+    width: WithScreen * 0.4,
+    height: 50, 
   },
   text :{
     fontSize : 20, 

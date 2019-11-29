@@ -144,6 +144,7 @@ class ChangeInfor extends Component {
         <View style = {styles.spacechangepass} >
           <Button buttonStyle={styles.changepass}
             title='Cập nhật'
+            titleStyle={{fontSize: 20 }}
             onPress={() => this.update()}
           />
         </View>

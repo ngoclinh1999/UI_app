@@ -44,6 +44,7 @@ export default class SearchBody extends Component {
           <Button
             style={Style.button}
             title='Tìm kiếm'
+            titleStyle={{fontSize: 20}}
             onPress={() => {}}
           />
         </View>

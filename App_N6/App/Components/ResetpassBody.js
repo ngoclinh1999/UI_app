@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Alert, View, ImageBackground, StatusBar,Text, Platform,ToastAndroid, BackHandler,ScrollView } from 'react-native'
-import style from './Styles/SignUpBodyStyles'
+import style from './Styles/ResetpassBodyStyles'
 import CustomHeader from './CustomHeader'
 import { Input, Button, Icon,CheckBox  } from 'react-native-elements'
 
@@ -56,6 +56,7 @@ export default class SignUpBody extends Component {
             <View style={style.button}>
               <Button
                 title='Xác nhận'
+                titleStyle={{fontSize: 20 }}
                 buttonStyle={style.buttonstyle}
                 onPress = {()=> this.ResetPass()}
               />

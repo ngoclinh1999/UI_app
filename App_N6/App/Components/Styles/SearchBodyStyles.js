@@ -16,7 +16,7 @@ export default (Style = StyleSheet.create({
   },
   button: {
     height: 45,
-    width: 200,
+    width: Dimensions.get('window').width*0.4,
     borderRadius: 10
   }
 }))

@@ -28,13 +28,13 @@ export default styles = StyleSheet.create({
   spacechangepass: {
     marginTop: 10,
     height:HeightScreen*0.3,
-    backgroundColor: '#f3f4f7',
+    alignItems: 'center'
   }, 
   changepass: {
-    width : WidthScreen*0.95,
-    height : 35,
+    width : WidthScreen*0.4,
+    height : 50,
     marginLeft : 10,
-    borderRadius : 12,
+    borderRadius : 5,
     marginTop : 10,
   },
   segif1: {
