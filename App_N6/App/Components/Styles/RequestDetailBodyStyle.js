@@ -6,7 +6,7 @@ export default StyleSheet.create({
     flexDirection: 'column'
   },
   body: {
-    justifyContent: 'center',
+    justifyContent: 'center', 
     alignItems: 'center',
     marginBottom: 10
   },
@@ -25,5 +25,11 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     marginBottom: 2
-  }
+  },
+  modalStyle: {
+    flex:1,
+      backgroundColor: 'transparent',
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
 })

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { View, SafeAreaView, ScrollView, Text, BackHandler, Image,StatusBar } from 'react-native'
+import { View, SafeAreaView, ScrollView, Text, BackHandler, Image,StatusBar,TouchableOpacity, Dimensions } from 'react-native'
 import RequestDetailBodyStyle from './Styles/RequestDetailBodyStyle'
 import CustomHeader from './CustomHeader'
-
+import Modal from 'react-native-modal'
 export default class RequestDetailBody extends Component {
   constructor(props) {
-    super(props)  
+    super(props)
+    this.state = {
+      isVisible: false,
+    }  
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
   }
   componentWillMount() {
@@ -69,10 +72,12 @@ export default class RequestDetailBody extends Component {
             <View>
               <Text style={RequestDetailBodyStyle.title}>Hình ảnh: </Text>
               <View style = {{marginLeft: 30}}>
-                <Image 
-                source={require('../Images/demo.png')} 
-                resizeMode = 'contain'
-                />
+                <TouchableOpacity onPress = {()=> {this.setState({isVisible : true})}}>
+                  <Image 
+                  source={require('../Images/demo.png')} 
+                  resizeMode = 'contain'
+                  />
+                </TouchableOpacity>
               </View>
             </View>
             <View>
@@ -93,6 +98,21 @@ export default class RequestDetailBody extends Component {
             </View>
           </ScrollView>
         </View>
+        <Modal
+            style = {RequestDetailBodyStyle.modalStyle}
+            isVisible = {this.state.isVisible}
+            backdropOpacity = {1}
+            deviceHeight = {Dimensions.get('screen').height}
+            avoidKeyboard = {true}
+            onBackButtonPress ={() => {this.setState({isVisible: false})}}
+        >
+                <View>
+                <Image 
+                  source={require('../Images/demo.png')}
+                  resizeMode = 'contain'
+                />
+                </View>
+           </Modal> 
       </SafeAreaView>
     )
   }

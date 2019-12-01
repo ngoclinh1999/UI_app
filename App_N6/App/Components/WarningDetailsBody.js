@@ -110,10 +110,6 @@ class WarningDetailsBody extends Component {
         <Modal
             style = {styles.modalStyle}
             isVisible = {this.state.isVisible}
-            animationIn={'zoomIn'}
-            animationOut={'zoomOut'}
-            animationInTiming={1500}
-            animationOutTiming={1000}
             backdropOpacity = {1}
             deviceHeight = {Dimensions.get('screen').height}
             avoidKeyboard = {true}
@@ -125,17 +121,6 @@ class WarningDetailsBody extends Component {
                   style = {{width : Dimensions.get('window').width, height: Dimensions.get('window').height*0.5}}
                   resizeMode = 'contain'
                 />
-                </View>
-                <View style={styles.iconStyle}>
-                  <Icon
-                    name='clear'
-                    size={40}
-                    color='white'
-                    underlayColor={'transparent'}
-                    onPress={() => {
-                      this.setState({isVisible: false})
-                    }}
-                  />
                 </View>
            </Modal> 
       </SafeAreaView>
