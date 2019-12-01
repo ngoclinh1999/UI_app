@@ -8,6 +8,8 @@ import HouseWarningTabBar from './HouseWarningTabBar'
 class HouseWarning extends Component {
 
     render() {
+        this.admin = this.props.navigation.getParam('admin', 'No')
+        console.log(this.admin)
         return (
             <View style = {{flex:1}}>
                 <ScrollableTabView
@@ -16,8 +18,8 @@ class HouseWarning extends Component {
                     initialPage={0}
                     renderTabBar={() => <HouseWarningTabBar />}
                 >
-                    <HomeWarningBody tabLabel="warning" {...this.props}/>
-                    <HomeCategoriesBody tabLabel="list" {...this.props}/>
+                    <HomeWarningBody tabLabel="warning" admin = {this.admin} {...this.props}/>
+                    <HomeCategoriesBody tabLabel="list" admin = {this.admin} {...this.props}/>
                 </ScrollableTabView>
             </View>
         );

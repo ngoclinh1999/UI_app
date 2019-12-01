@@ -8,7 +8,10 @@ import { withNavigation } from 'react-navigation'
 import ImagePicker from 'react-native-image-picker'
 
 const options = {
-  title: 'Select Avatar',
+  title: 'Chọn ảnh đại diện',
+  cancelButtonTitle: 'Huỷ',
+  takePhotoButtonTitle: 'Chụp ảnh',
+  chooseFromLibraryButtonTitle: 'Chọn ảnh từ thư viện',
   mediaType: 'photo',
   maxWidth: 300,
   maxHeight: 300,

@@ -28,7 +28,24 @@ export default class SignUpBody extends Component {
     return true;
   }
   handleSignUp = () => {
-    this.props.navigation.navigate('ConfirmScreen',{screen : 'HomeScreen'})
+    const { email, password,confirm } = this.state
+    if (email.trim() != '' && password.trim() != '' && confirm.trim() != '' ) {
+      this.props.navigation.navigate('ConfirmScreen',{screen : 'LoginScreen'})
+    } 
+    else if(password != confirm){
+      ToastAndroid.showWithGravity(
+        'Mật khẩu không khớp',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      )
+    }
+    else {
+      ToastAndroid.showWithGravity(
+        'Điền đầy đủ thông tin',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      )
+    } 
   }
   render () {
     return (
@@ -68,7 +85,7 @@ export default class SignUpBody extends Component {
                         <Text style = {styles.text2}> Mật khẩu</Text>
                         <Input
                             inputContainerStyle={styles.input}
-                            keyboardType='email-address'
+                            keyboardType='default'
                             secureTextEntry={true}
                             leftIcon={{ type: 'AntDesign', name: 'lock', color:'#757575', size:20 }}
                             containerStyle={{alignItems:'center' }}
@@ -79,7 +96,7 @@ export default class SignUpBody extends Component {
                         <Text style = {styles.text3}> Nhập lại Mật khẩu</Text>
                         <Input
                             inputContainerStyle={styles.input}
-                            keyboardType='email-address'
+                            keyboardType='default'
                             secureTextEntry={true}
                             leftIcon={{ type: 'AntDesign', name: 'lock', color:'#757575', size:20 }}
                             containerStyle={{alignItems:'center' }}

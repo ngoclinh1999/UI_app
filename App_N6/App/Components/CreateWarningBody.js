@@ -20,7 +20,10 @@ import CustomHeader from './CustomHeader'
 import ImagePicker from 'react-native-image-picker'
 import {Category_LIST} from '../Data/DataTest'
 const options = {
-  title: 'Select Avatar',
+  title: 'Thêm ảnh mới',
+  cancelButtonTitle: 'Huỷ',
+  takePhotoButtonTitle: 'Chụp ảnh',
+  chooseFromLibraryButtonTitle: 'Chọn ảnh từ thư viện',
   mediaType: 'photo',
   maxWidth: 600,
   maxHeight: 400,

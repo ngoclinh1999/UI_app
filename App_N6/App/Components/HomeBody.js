@@ -33,6 +33,8 @@ export default class HomeBody extends Component {
     return true;
   }
   render () {
+    this.admin = this.props.navigation.getParam('admin', 'No');
+    console.log(this.admin)
     return (
       <View style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
@@ -51,15 +53,6 @@ export default class HomeBody extends Component {
             }}
           />
             </View> 
-            <Button
-                title= "Đăng xuất"
-                titleStyle={{ fontSize: 18,color: '#9E9E9E' }}
-                type='clear'
-                onPress={() => {
-                  this.props.navigation.navigate("LoginScreen")
-                }}
-                style = {styles.signout}
-              />  
           </View>
           <View style={styles.body} >
             <Text style={{fontSize:25,color:'white',marginBottom:30, marginLeft:20}}>Ứng dụng đô thị</Text>
@@ -85,7 +78,7 @@ export default class HomeBody extends Component {
                 underlayColor='transparent'
                 size={50}
                 onPress={() => {
-                  this.props.navigation.navigate("HouseWarningScreen")
+                  this.props.navigation.navigate("HouseWarningScreen", {admin: this.admin})
                 }}
               />
               <Text style={styles.text}>TTCB</Text>

@@ -14,6 +14,7 @@ import CustomHeader from './CustomHeader'
 class CreateNewPassBody extends Component {
     constructor(){
         super();
+        this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
     componentWillMount(){ 
         BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);

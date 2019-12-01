@@ -21,6 +21,7 @@ export default class ConfirmBody extends Component {
       code: '',
       screen: ''
     }
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
   }
   componentWillMount(){ 
     const screen = this.props.navigation.getParam('screen', '')

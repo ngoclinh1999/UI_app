@@ -9,6 +9,7 @@ export default class BackgroundImage extends Component {
     this.state = {
       email: '',
       password: '',
+      admin: '',
       errorMessage: ''
     }
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
@@ -49,12 +50,19 @@ export default class BackgroundImage extends Component {
   handleLogin = () => {
     const { email, password } = this.state
     if (email.trim() != '' && password.trim() != '') {
-      this.props.navigation.push('HomeScreen')
+      if (email.toLowerCase() == 'admin@gmail.com' && password.toLowerCase() == 'admin'){
+        this.props.navigation.push('HomeScreen', {admin: 'Yes'})
+      }
+      else{ this.props.navigation.push('HomeScreen', {admin: 'No'});}
+      this.setState({
+        email: '',
+        password: ''
+      })
     } else {
       ToastAndroid.showWithGravity(
         'Hãy nhập tài khoản, mật khẩu',
         ToastAndroid.SHORT,
-        ToastAndroid.CENTER
+        ToastAndroid.BOTTOM
       )
     }
   }
@@ -85,7 +93,8 @@ export default class BackgroundImage extends Component {
                     <Text style = {styles.text2}> Mật khẩu</Text>
                     <Input
                         inputContainerStyle={styles.input}
-                        keyboardType='email-address'
+                        keyboardType='default'
+                        secureTextEntry = {true}
                         leftIcon={{ type: 'AntDesign', name: 'lock', color:'#757575' }}
                         containerStyle={{alignItems:'center' }}
                         leftIconContainerStyle={{ marginLeft: 0 }}

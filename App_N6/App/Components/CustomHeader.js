@@ -11,7 +11,7 @@ class Back extends Component {
         type="AntDesign"
         size={25}
         color="white"
-        underlayColor="transparent"
+        underlayColor="#29B6F6"
         onPress={() => {
           if (title == 'Thông tin cảnh báo'|| title == 'Phản ánh kiến nghị') {
               return this.props.navigation.navigate('HomeScreen')

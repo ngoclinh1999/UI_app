@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { View, Text, Alert, StatusBar,Image,BackHandler  } from 'react-native'
-import { Avatar, Button } from 'react-native-elements'
+import { Avatar, Button, Icon } from 'react-native-elements'
 import styles from './Styles/InfoBodyStyles'
 import CustomHeader from './CustomHeader'
 import { withNavigation } from 'react-navigation'
 import ImagePicker from 'react-native-image-picker'
 import {INFO} from '../Data/DataTest'
+import Menu,{MenuItem, MenuDivider} from 'react-native-material-menu';
 const options = {
-  title: 'Select Avatar',
+  title: 'Chọn ảnh đại diện',
+  cancelButtonTitle: 'Huỷ',
+  takePhotoButtonTitle: 'Chụp ảnh',
+  chooseFromLibraryButtonTitle: 'Chọn ảnh từ thư viện',
   mediaType: 'photo',
   maxWidth: 300,
   maxHeight: 300,
@@ -52,6 +56,72 @@ class InforBody extends Component {
       }
     })
   }
+  _settingMenu = null;
+
+  setMenuRef = ref => {
+    this._settingMenu = ref;
+  };
+
+  hideMenu = () => {
+    this._settingMenu.hide();
+  };
+
+  showMenu = () => {
+    this._settingMenu.show();
+  };
+  exit = () =>{
+    this.hideMenu();
+    Alert.alert(
+      'Thoát!',
+      'Bạn có muốn thoát không?',
+      [
+        {
+          text: 'Hủy',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        {
+          text: 'Đồng ý',
+          onPress: () => BackHandler.exitApp()
+        }
+      ],
+      {
+        cancelable: false
+      }
+    )
+    return true
+  }
+  editInfo = () => {
+    this.hideMenu();
+    this.props.navigation.navigate('ChangeInforScreen');
+  }
+  editPass = () =>{
+    this.hideMenu();
+    this.props.navigation.navigate('ChangePassScreen')
+  }
+  logOut = () =>{
+    this.hideMenu();
+    Alert.alert(
+      'Thoát!',
+      'Bạn có muốn đăng xuất không không?',
+      [
+        {
+          text: 'Hủy',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel'
+        },
+        {
+          text: 'Đồng ý',
+          onPress: () => this.props.navigation.navigate('LoginScreen')
+        }
+      ],
+      {
+        cancelable: false
+      }
+    )
+    return true
+    
+  }
   render () {
     const data = Object.values(INFO)
     return (
@@ -66,13 +136,36 @@ class InforBody extends Component {
         />
         <View style={styles.spaceavatar}  > 
           <Avatar
-            style={styles.avatar}
-            rounded = {true}
+            containerStyle={styles.avatar}
+            rounded
             source={require("../Images/Logo.png")}
             showEditButton = {true}
             editButton = {{size: 18}}
             onEditPress = {()=> this.editAvatar()}
           />
+          <View style = {styles.menu}>
+          <Menu
+                ref={this.setMenuRef}
+                button={
+                  <Icon
+                    name="settings"
+                    type="AntDesign"
+                    size={25}
+                    color="#29B6F6"
+                    underlayColor="transparent"
+                    onPress={this.showMenu}
+                  />
+                }
+              >
+                <MenuItem onPress={this.editInfo}>Chỉnh sửa thông tin</MenuItem>
+                <MenuDivider />
+                <MenuItem onPress={this.editPass}>Đổi mật khẩu</MenuItem>
+                <MenuDivider />
+                <MenuItem onPress={this.logOut}>Đăng xuất</MenuItem>
+                <MenuDivider />
+                <MenuItem onPress={this.exit}>Thoát</MenuItem>
+            </Menu>
+          </View>
         </View>
         <View style={{ flexDirection: 'column', marginLeft: 10  }}>
           <Text style={styles.segif}>Họ tên: {data[0].name}</Text>
@@ -81,14 +174,6 @@ class InforBody extends Component {
           <Text style={styles.segif}>Điện thoại : {data[0].phone}</Text>
           <Text style={styles.segif}>Địa chỉ : {data[0].address}</Text>
           <Text style={styles.segif1}>Email : {data[0].email}</Text>
-        </View>
-        <View style = {styles.spacechangepass} >
-          <Button buttonStyle={styles.changepass}
-            title='Đổi thông tin'
-            titleStyle = {{fontSize: 20}}
-            onPress={() => { this.props.navigation.navigate('ChangeInforScreen')
-            }}
-          />
         </View>
       </View>
     )

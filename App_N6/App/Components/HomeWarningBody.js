@@ -30,6 +30,8 @@ class HomeWarningBody extends Component {
     this.setState({selectedIndex})
   }
   render () {
+    this.admin = this.props.admin
+    console.log(this.admin)
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar translucent backgroundColor='transparent' barStyle="dark-content"/>
@@ -37,7 +39,7 @@ class HomeWarningBody extends Component {
           {...this.props}
           title={'Thông tin cảnh báo'}
           add={'Yes'}
-          admin={'Yes'}
+          admin={this.admin}
           send={'No'}
         />
         <View style={styles.body}>

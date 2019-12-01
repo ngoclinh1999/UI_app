@@ -21,7 +21,7 @@ import HouseWarningScreen from '../Containers/HouseWarningScreen'
 import ChangeInforScreen from '../Containers/ChangeInforScreen'
 import ConfirmScreen from '../Containers/ConfirmScreen'
 import CreatenewpassScreen from '../Containers/CreatenewpassScreen'
-
+import ChangePassScreen from '../Containers/ChangePassScreen'
 const WarningNavigation = createStackNavigator(
   {
     CategoriesScreen: {
@@ -106,6 +106,9 @@ const AppNavigator = createStackNavigator(
     },
     CreatenewpassScreen:{
       screen: CreatenewpassScreen
+    },
+    ChangePassScreen: {
+      screen: ChangePassScreen
     }
   },
   {

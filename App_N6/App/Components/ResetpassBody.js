@@ -5,7 +5,7 @@ import CustomHeader from './CustomHeader'
 import { Input, Button, Icon,CheckBox  } from 'react-native-elements'
 
 
-export default class SignUpBody extends Component {
+export default class ResetpassBody extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -41,19 +41,20 @@ export default class SignUpBody extends Component {
           {...this.props}
         />
           <View style={style.bewraped}>
-            <Text style = {{fontSize : 20, marginRight : 270 }}>Email</Text>
+            <Text style = {{fontSize : 20, marginLeft: 10 }}>Email</Text>
             <Input
               inputContainerStyle={style.input}
               keyboardType='email-address'
               placeholder='abc@gmail.com'
               placeholderTextColor='gray'
-              leftIcon={{ type: 'Fontisto', name: 'email' }}
+              leftIcon={{ type: 'Fontisto', name: 'email', color: '#757575' }}
               containerStyle={{ alignItems: 'flex-start' }}
               leftIconContainerStyle = {{marginLeft: 0}}
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />           
-            <View style={style.button}>
+          </View>
+          <View style={style.button}>
               <Button
                 title='Xác nhận'
                 titleStyle={{fontSize: 20 }}
@@ -61,7 +62,6 @@ export default class SignUpBody extends Component {
                 onPress = {()=> this.ResetPass()}
               />
             </View>
-          </View>
         </View>
       </ScrollView>
     )
