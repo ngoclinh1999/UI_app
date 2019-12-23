@@ -39,9 +39,22 @@ export default class ConfirmBody extends Component {
   }
   
   _onFinishCheckingCode (isValid, code) {
-    this.setState({code: ''});
-    this.refs.codeInputRef.clear();
-    this.props.navigation.navigate(this.state.screen)
+    if (!isValid) {
+      ToastAndroid.showWithGravity(
+        'Mã xác nhận không chính xác!',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      )
+    } else {
+      ToastAndroid.showWithGravity(
+        'Thành công!',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM
+      );
+      this.setState({code: ''});
+      this.refs.codeInputRef.clear();
+      this.props.navigation.navigate(this.state.screen)
+    }
 
   }
   render () {
@@ -88,7 +101,7 @@ export default class ConfirmBody extends Component {
               keyboardType='numeric'
               codeLength={4}
               className={'border-b'}
-              compareWithCode=''
+              compareWithCode='1234'
               space={15}
               autoFocus={true}
               containerStyle={styles.codeMid}

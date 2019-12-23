@@ -77,9 +77,9 @@ class CreateWarningBody extends Component {
       'Tạo thành công!',
       ToastAndroid.SHORT,
       ToastAndroid.CENTER
-    )
+    );
+    this.props.navigation.goBack();
     }
-
   }
   showImage = () => {
     // console.log(this.state.avatarSource)

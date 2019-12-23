@@ -78,10 +78,10 @@ export default class CreateRequestBody extends Component {
         'Tạo thành công!',
         ToastAndroid.LONG,
         ToastAndroid.CENTER,
-      )
+      );
+      this.props.navigation.goBack();
     }
   }
-  
   render() {
     return (
       <SafeAreaView style={CreateRequestBodyStyle.safeAreaViewContainer}>

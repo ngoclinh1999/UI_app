@@ -59,6 +59,14 @@ class ChangeInfor extends Component {
       }
     })
   }
+  update(){
+    ToastAndroid.showWithGravity(
+      'Cập nhật thành công',
+      ToastAndroid.SHORT,
+      ToastAndroid.BOTTOM
+    )
+    this.props.navigation.goBack();
+  }
   render () {
     return (
       <View style={styles.container}>

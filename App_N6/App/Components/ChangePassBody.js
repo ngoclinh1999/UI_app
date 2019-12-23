@@ -28,7 +28,7 @@ export default class ChangePassBody extends Component {
   }
   ChangePass = () => {
       const {pass, newpass, newpass2} = this.state;
-      if(newpass =='' && newpass2 == '') {
+      if(newpass =='' || newpass2 == '' || pass == '') {
         ToastAndroid.showWithGravity(
             'Điền đầy đủ mật khẩu',
             ToastAndroid.SHORT,

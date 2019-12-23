@@ -34,7 +34,7 @@ export default class HomeBody extends Component {
   }
   render () {
     this.admin = this.props.navigation.getParam('admin', 'No');
-    console.log(this.admin)
+    //console.log(this.admin)
     return (
       <View style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
