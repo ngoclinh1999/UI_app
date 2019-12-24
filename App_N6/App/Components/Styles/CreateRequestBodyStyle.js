@@ -18,17 +18,15 @@ export default StyleSheet.create({
     marginTop: 10,
     marginLeft: 15,
     marginRight: 15,
-    color: 'black',
+    color: '#546E7A',
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'left'
   },
   inlineTextExpand: {
     marginLeft: 15,
     marginRight: 15,
-    color: 'black',
+    color: '#546E7A',
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'left'
   },
   inlineTextInput: {

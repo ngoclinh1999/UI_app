@@ -13,7 +13,7 @@ export default StyleSheet.create({
   title: {
     fontSize: 22,
     textAlign: 'left',
-    color: 'black',
+    color: '#546E7A',
     paddingLeft: 10,
     marginBottom: 5,
     marginTop: 10,
@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   text: {
     fontSize: 18,
-    color: 'black',
+    color: '#616161',
     paddingLeft: 10,
     paddingRight: 10,
     marginBottom: 2

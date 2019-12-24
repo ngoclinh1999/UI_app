@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, Text, View, Image, ImageBackground, BackHandler, Alert } from 'react-native'
+import { StatusBar, Text, View, Image, ImageBackground, BackHandler, Alert, TouchableOpacity } from 'react-native'
 import { Icon, Avatar, Button } from 'react-native-elements'
 import styles from './Styles/HomeBodyStyles'
 export default class HomeBody extends Component {
@@ -39,7 +39,7 @@ export default class HomeBody extends Component {
       <View style={styles.container}>
        <StatusBar translucent = {true} backgroundColor='transparent' barStyle="dark-content"/>
         <ImageBackground
-          source={require("../Images/background.jpg")}
+          source={require("../Images/iphone-x-wallpaper-3.jpg")}
           style={styles.image}
           imageStyle={{opacity: 0.7}}
         >
@@ -55,45 +55,52 @@ export default class HomeBody extends Component {
             </View> 
           </View>
           <View style={styles.body} >
-            <Text style={{fontSize:25,color:'white',marginBottom:30, marginLeft:20}}>Ứng dụng đô thị</Text>
+            <Text style={{fontSize:35, fontWeight:'bold',color:'#00E676',marginBottom:30, marginLeft:20}}>Quản lý đô thị</Text>
           </View>
           <View style={styles.buttonBottom}>
             <View style={styles.iconStyle}>
-              <Icon
-                name='question-answer'
-                color='white'
-                underlayColor='transparent'
-                size={50}              
+              <TouchableOpacity
+                style={styles.touchable}
                 onPress={() => {
                   this.props.navigation.navigate("RequestScreen")
                 }}
-              />
+              >
+                <Image
+                  source = {require('../Images/report.png')}
+                  style = {styles.image2}
+                  resizeMode = 'contain'
+                />
+              </TouchableOpacity>
               <Text style={styles.text}>PAKN</Text>
             </View>
             <View style={styles.iconStyle}>
-              <Icon
-                name='warning'
-                type='FontAwesome'
-                color='yellow'
-                underlayColor='transparent'
-                size={50}
+            <TouchableOpacity
+                style={styles.touchable}
                 onPress={() => {
-                  this.props.navigation.navigate("HouseWarningScreen", {admin: this.admin})
+                  this.props.navigation.navigate("WarningScreen",{admin: this.admin})
                 }}
-              />
+              >
+                <Image
+                  source = {require('../Images/notification.png')}
+                  style = {styles.image2}
+                  resizeMode = 'contain'
+                />
+              </TouchableOpacity>
               <Text style={styles.text}>TTCB</Text>
             </View>
             <View style={styles.iconStyle}>
-              <Icon
-                name='search'
-                type='FontAwesome'
-                color='white'
-                underlayColor='transparent'
-                size={50}
+            <TouchableOpacity
+                style={styles.touchable}
                 onPress={() => {
                   this.props.navigation.navigate("SearchScreen")
                 }}
-              />
+              >
+                <Image
+                  source = {require('../Images/search.png')}
+                  style = {styles.image2}
+                  resizeMode = 'contain'
+                />
+              </TouchableOpacity>
               <Text style={styles.text}>Tìm kiếm</Text>
             </View>
           </View>

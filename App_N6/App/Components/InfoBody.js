@@ -138,7 +138,7 @@ class InforBody extends Component {
           <Avatar
             containerStyle={styles.avatar}
             rounded
-            source={require("../Images/Logo.png")}
+            source={(this.state.avatar == '') ? require('../Images/Logo.png'):source = { uri: 'data:image;base64,' + this.state.avatar}}
             showEditButton = {true}
             editButton = {{size: 18}}
             onEditPress = {()=> this.editAvatar()}

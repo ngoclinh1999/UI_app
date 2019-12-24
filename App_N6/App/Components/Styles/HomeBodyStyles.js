@@ -29,15 +29,22 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   iconStyle: {
-    width:60,
-    height:60,
-    borderRadius:10,
-    flex: 3
+    alignItems: 'center',
+    flex: 3.3
+  },
+  touchable:{
+    width: 60,
+    height: 60
+  },
+  image2:{
+    width: 60,
+    height: 60
   },
   text: {
     marginTop:20,
-    fontSize: 16,
-    color: '#212121',
+    fontSize: 18,
+    color: 'white',
+    fontWeight: '200',
     textAlign: 'center'
   },
   signout: {

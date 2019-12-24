@@ -27,7 +27,7 @@ export default StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'left',
-    color: 'black'
+    color: '#546E7A'
   },
   piker: {
     height:  HeightScreen * 0.05,
